@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Name der App</string>
+    <string name="tab_text_1">Übersicht</string>
+    <string name="tab_text_2">Tagebuch</string>
+    <string name="tab_text_3">Statistik</string>
+    <string name="tab_text_4">Kalender</string>
+
+</resources>
