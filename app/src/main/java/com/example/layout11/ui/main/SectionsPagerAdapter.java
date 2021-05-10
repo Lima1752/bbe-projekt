@@ -12,7 +12,6 @@ import com.example.layout11.R;
 import com.example.layout11.fragment1;
 import com.example.layout11.fragment2;
 import com.example.layout11.fragment3;
-import com.example.layout11.Kalender;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -21,7 +20,7 @@ import com.example.layout11.Kalender;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2,R.string.tab_text_3, R.string.tab_text_4};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2,R.string.tab_text_3};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -42,9 +41,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
            case 2:
                fragment=new fragment3();
                break;
-           case 3:
-               fragment=new Kalender();
-               break;
        }
        return fragment;
     }
@@ -58,6 +54,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 4 total pages.
-        return 4;
+        return 3;
     }
 }
