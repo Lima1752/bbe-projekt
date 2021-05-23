@@ -1,4 +1,4 @@
-package com.example.layout11.bluetooth_v_2_0;
+package com.example.layout11;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothDevice;
@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.layout11.R;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;

@@ -21,8 +21,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.layout11.bluetooth_v_2_0.DeviceListActivity;
-
 import java.util.ArrayList;
 import java.util.Set;
 
