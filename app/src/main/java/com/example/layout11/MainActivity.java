@@ -37,24 +37,13 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-
-        final Button blButton 			= (Button)this.findViewById(R.id.button);
-
-        blButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
         ShowMenu();
 
-                    Intent intent = new Intent(MainActivity.this, Bluetooth.class);
 
-                    startActivity(intent);
-                }
-        });
     }
 
     ;
 
-        }
 
     private void ShowMenu() {
         fmenu=findViewById(R.id.menu);
@@ -99,6 +88,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "My Profil", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(MainActivity.this, Bluetooth.class);
+
+                startActivity(intent);
             }
         });
 
