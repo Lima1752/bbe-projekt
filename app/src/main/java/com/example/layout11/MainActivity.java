@@ -80,14 +80,13 @@ public class MainActivity extends AppCompatActivity {
         fhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Delete", Toast.LENGTH_SHORT).show();
             }
         });
 
         fBluetooth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "My Profil", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(MainActivity.this, Bluetooth.class);
 

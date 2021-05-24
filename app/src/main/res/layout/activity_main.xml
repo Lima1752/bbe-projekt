@@ -71,7 +71,8 @@
             android:layout_marginBottom="10dp"
             android:clickable="true"
             app:fabSize="mini"
-            app:srcCompat="@drawable/menu" />
+            app:srcCompat="@drawable/ic_delete"
+            tools:ignore="VectorDrawableCompat" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add"
@@ -83,7 +84,8 @@
             android:layout_marginBottom="10dp"
             android:clickable="true"
             app:fabSize="mini"
-            app:srcCompat="@drawable/menu" />
+            app:srcCompat="@drawable/ic_plus"
+            tools:ignore="VectorDrawableCompat" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/menu"
