@@ -13,6 +13,7 @@ import com.example.layout11.R;
 import com.example.layout11.fragment1;
 import com.example.layout11.fragment2;
 import com.example.layout11.fragment3;
+import com.example.layout11.fragmentC;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -42,6 +43,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
            case 2:
                fragment=new fragment3();
                break;
+           case 3:
+               fragment=new fragmentC();
+               break;
        }
        return fragment;
     }
@@ -54,7 +58,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show total pages.
-        return 3;
+        // Show 4 total pages.
+        return 4;
     }
 }

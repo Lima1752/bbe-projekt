@@ -22,4 +22,8 @@
     <string name="text_pair">Pair</string>
     <string name="button">Button</string>
 
+    <string name="textview">Kalender</string>
+    <string name="button_text">Eingabe</string>
+    <string name="textInput">Texteingabe</string>
+
 </resources>
