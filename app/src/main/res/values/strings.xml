@@ -20,5 +20,6 @@
     <string name="text_list_devices">List of Devices</string>
 
     <string name="text_pair">Pair</string>
+    <string name="button">Button</string>
 
 </resources>
