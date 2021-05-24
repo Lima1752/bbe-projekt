@@ -5,4 +5,8 @@
     <string name="tab_text_3">Statistik</string>
     <string name="tab_text_4">Kalender</string>
 
+    <string name="textview">Kalender</string>
+    <string name="button_text">Eingabe</string>
+    <string name="textInput">Texteingabe</string>
+
 </resources>
