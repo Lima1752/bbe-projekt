@@ -46,6 +46,10 @@
         app:layout_constraintBottom_toBottomOf="@id/view_pager"
         app:layout_constraintEnd_toEndOf="parent">
 
+
+
+
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/bluetooth"
             android:layout_width="match_parent"

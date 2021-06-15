@@ -26,4 +26,6 @@
     <string name="button_text">Eingabe</string>
     <string name="textInput">Texteingabe</string>
 
+    <string name="get_value">Get value</string>
+
 </resources>

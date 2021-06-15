@@ -11,24 +11,35 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Set;
 
 /**
  * Main activity.
  *
  * @author Lorensius W. L. T <lorenz@londatiga.net>
+ *
  */
 public class Bluetooth extends Activity {
     private TextView mStatusTv;
     private Button mActivateBtn;
     private Button mPairedBtn;
     private Button mScanBtn;
+    public static Button mGetvalueBtn;
+    public static TextView mValue;
+    public static TextView mInfo;
 
     private ProgressDialog mProgressDlg;
 
@@ -36,16 +47,22 @@ public class Bluetooth extends Activity {
 
     private BluetoothAdapter mBluetoothAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.bluetooth_layout);
 
+
         mStatusTv = (TextView) this.findViewById(R.id.tv_status);
         mActivateBtn = (Button) this.findViewById(R.id.btn_enable);
         mPairedBtn = (Button) this.findViewById(R.id.btn_view_paired);
         mScanBtn = (Button) this.findViewById(R.id.btn_scan);
+        mGetvalueBtn = (Button) this.findViewById(R.id.btn_getvalue);
+        mValue = (TextView) this.findViewById(R.id.tv_value);
+        mInfo = (TextView) this.findViewById(R.id.tv_info);
+
 
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
@@ -68,10 +85,12 @@ public class Bluetooth extends Activity {
             mPairedBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
 
                     if (pairedDevices == null || pairedDevices.size() == 0) {
                         showToast("No Paired Devices Found");
+                        mGetvalueBtn.setEnabled(false);
                     } else {
                         ArrayList<BluetoothDevice> list = new ArrayList<BluetoothDevice>();
 
@@ -108,11 +127,26 @@ public class Bluetooth extends Activity {
                 }
             });
 
+            mGetvalueBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Random rand = new Random();
+
+                    int number = rand.nextInt(300) + 1;
+
+                    mValue.setText(String.valueOf(number));
+                    mInfo.setVisibility(View.VISIBLE);
+
+                }
+            });
+
             if (mBluetoothAdapter.isEnabled()) {
                 showEnabled();
             } else {
                 showDisabled();
             }
+
+
         }
 
         IntentFilter filter = new IntentFilter();
@@ -123,7 +157,10 @@ public class Bluetooth extends Activity {
         filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
 
         registerReceiver(mReceiver, filter);
+
+
     }
+
 
     @Override
     public void onPause() {
@@ -163,6 +200,10 @@ public class Bluetooth extends Activity {
 
         mPairedBtn.setEnabled(false);
         mScanBtn.setEnabled(false);
+
+        mGetvalueBtn.setEnabled(false);
+        mInfo.setVisibility(View.INVISIBLE);
+        mValue.setVisibility(View.INVISIBLE);
     }
 
     private void showUnsupported() {
@@ -173,6 +214,10 @@ public class Bluetooth extends Activity {
 
         mPairedBtn.setEnabled(false);
         mScanBtn.setEnabled(false);
+
+        mGetvalueBtn.setEnabled(false);
+        mInfo.setVisibility(View.INVISIBLE);
+        mValue.setVisibility(View.INVISIBLE);
     }
 
     private void showToast(String message) {
