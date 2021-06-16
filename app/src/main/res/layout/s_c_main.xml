@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".s_c_Main">
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25sp"
+        tools:text="Here will be our text" />
+
+    <EditText
+        android:id="@+id/edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/apply_text_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimary"
+        android:text="Save"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/apply_text_button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimary"
+        android:text="reset Data"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/dataview"
+        android:layout_width="match_parent"
+        android:layout_height="169dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25sp"
+
+        tools:text="Here will be the Data" />
+
+    <Button
+        android:id="@+id/apply_text_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimary"
+        android:text="Calculate"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/apply_text_button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimary"
+        android:text="reset Average"
+        android:textColor="#FFFFFF" />
+
+
+</LinearLayout>

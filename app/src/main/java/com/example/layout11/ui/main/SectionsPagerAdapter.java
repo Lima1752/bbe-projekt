@@ -14,6 +14,7 @@ import com.example.layout11.fragment1;
 import com.example.layout11.fragment2;
 import com.example.layout11.fragment3;
 import com.example.layout11.fragmentC;
+import com.example.layout11.s_c_Main;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -22,7 +23,7 @@ import com.example.layout11.fragmentC;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2,R.string.tab_text_3,R.string.tab_text_4};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_4,R.string.tab_text_3};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -35,16 +36,13 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
        Fragment fragment = null;
        switch (position){
            case 0:
-               fragment=new fragment1();
+               fragment=new s_c_Main();
                break;
            case 1:
-               fragment=new fragment2();
+               fragment=new fragmentC();
                break;
            case 2:
-               fragment=new fragment3();
-               break;
-           case 3:
-               fragment=new fragmentC();
+               fragment=new fragment2();
                break;
        }
        return fragment;
@@ -59,6 +57,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 4 total pages.
-        return 4;
+        return 3;
     }
 }

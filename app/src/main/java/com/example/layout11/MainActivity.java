@@ -22,7 +22,7 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
-    FloatingActionButton fmenu,fadd,fhome, fBluetooth;
+    FloatingActionButton fmenu,fgraph,fhome, fBluetooth;
     Float translationYaxis= 100f;
     Boolean menuOpen = false;
 
@@ -47,15 +47,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void ShowMenu() {
         fmenu=findViewById(R.id.menu);
-        fadd=findViewById(R.id.add);
+        fgraph=findViewById(R.id.graph);
         fhome=findViewById(R.id.home);
         fBluetooth =findViewById(R.id.bluetooth);
 
-        fadd.setAlpha(0f);
+        fgraph.setAlpha(0f);
         fhome.setAlpha(0f);
         fBluetooth.setAlpha(0f);
 
-        fadd.setTranslationY(translationYaxis);
+        fgraph.setTranslationY(translationYaxis);
         fhome.setTranslationY(translationYaxis);
         fBluetooth.setTranslationY(translationYaxis);
 
@@ -70,10 +70,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        fadd.setOnClickListener(new View.OnClickListener() {
+        fgraph.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Add", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "show Graph", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, Graph.class);
+
+                startActivity(intent);
             }
         });
 
@@ -100,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
     private void OpenMenu() {
 
         menuOpen= !menuOpen;
-        fadd.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
+        fgraph.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
         fhome.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
         fBluetooth.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
     }
@@ -108,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
     private void CloseMenu() {
 
         menuOpen= !menuOpen;
-        fadd.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
+        fgraph.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
         fhome.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
         fBluetooth.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
 
