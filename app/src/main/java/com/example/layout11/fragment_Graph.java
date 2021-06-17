@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,11 @@ public class fragment_Graph extends Fragment {
         z = text.split(" , ");
 
         for(int x=0;x<z.length;x++){
+
+            if(TextUtils.isEmpty(text)){
+                z[0]="0";
+            }
+
             y = Double.valueOf(z[x]);
             series.appendData(new DataPoint(x,y),true,z.length);
 
