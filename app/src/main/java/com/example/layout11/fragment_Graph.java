@@ -1,44 +1,53 @@
 package com.example.layout11;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
-public class Graph extends AppCompatActivity {
+public class fragment_Graph extends Fragment {
 
     private String text;
     private String[] z = new String[100];
     private double y;
 
+    public static final String SHARED_PREFS = "sharedPrefs";
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_graph);
+
+        View mView = inflater.inflate(R.layout.activity_graph,container,false);
 
         //get graph from layout
-        GraphView graph = (GraphView) findViewById(R.id.graph);
+        GraphView graph =mView.findViewById(R.id.graph);
 
         //form series (curve for graph)
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
 
-        SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-        text = sharedPreferences.getString("werte","");
+        SharedPreferences preferences = this.getActivity().getSharedPreferences(SHARED_PREFS,0);
+        text = preferences.getString("werte","");
 
         z = text.split(" , ");
 
         for(int x=0;x<z.length;x++){
             y = Double.valueOf(z[x]);
             series.appendData(new DataPoint(x,y),true,z.length);
-        }
 
-        graph.addSeries(series);
+
+        }
 
         //Einstellung Farben, Datenpunkte Durchmesser, Linienstärke
         series.setColor(Color.RED);
@@ -60,12 +69,8 @@ public class Graph extends AppCompatActivity {
 
         //Damit alle x-Werte sichtbar sind
         graph.getGridLabelRenderer().setNumHorizontalLabels(z.length);
-        
 
-
-
-
-
-
+        graph.addSeries(series);
+        return mView;
     }
 }

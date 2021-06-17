@@ -48,15 +48,12 @@ public class MainActivity extends AppCompatActivity {
     private void ShowMenu() {
         fmenu=findViewById(R.id.menu);
         fgraph=findViewById(R.id.graph);
-        fhome=findViewById(R.id.home);
         fBluetooth =findViewById(R.id.bluetooth);
 
         fgraph.setAlpha(0f);
-        fhome.setAlpha(0f);
         fBluetooth.setAlpha(0f);
 
         fgraph.setTranslationY(translationYaxis);
-        fhome.setTranslationY(translationYaxis);
         fBluetooth.setTranslationY(translationYaxis);
 
         fmenu.setOnClickListener(new View.OnClickListener() {
@@ -80,12 +77,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        fhome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Delete", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         fBluetooth.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
 
         menuOpen= !menuOpen;
         fgraph.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
-        fhome.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
         fBluetooth.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
     }
 
@@ -112,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
 
         menuOpen= !menuOpen;
         fgraph.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
-        fhome.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
         fBluetooth.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
 
     }
