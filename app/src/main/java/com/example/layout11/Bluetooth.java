@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -37,9 +38,11 @@ public class Bluetooth extends Activity {
     private Button mActivateBtn;
     private Button mPairedBtn;
     private Button mScanBtn;
+    private Button mSaveBtn;
     public static Button mGetvalueBtn;
     public static TextView mValue;
     public static TextView mInfo;
+    private int number;
 
     private ProgressDialog mProgressDlg;
 
@@ -59,6 +62,7 @@ public class Bluetooth extends Activity {
         mActivateBtn = (Button) this.findViewById(R.id.btn_enable);
         mPairedBtn = (Button) this.findViewById(R.id.btn_view_paired);
         mScanBtn = (Button) this.findViewById(R.id.btn_scan);
+        mSaveBtn            = (Button) this.findViewById(R.id.btn_save);
         mGetvalueBtn = (Button) this.findViewById(R.id.btn_getvalue);
         mValue = (TextView) this.findViewById(R.id.tv_value);
         mInfo = (TextView) this.findViewById(R.id.tv_info);
@@ -132,10 +136,34 @@ public class Bluetooth extends Activity {
                 public void onClick(View v) {
                     Random rand = new Random();
 
-                    int number = rand.nextInt(300) + 1;
+                    number = rand.nextInt(300)+1;
 
                     mValue.setText(String.valueOf(number));
                     mInfo.setVisibility(View.VISIBLE);
+
+                }
+            });
+
+
+            mSaveBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs",MODE_PRIVATE);
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    String wertVorher = sharedPreferences.getString("werte","");
+
+                    if (wertVorher.isEmpty()){
+                        editor.putString("werte", String.valueOf(number));
+                    }else{
+                        editor.putString("werte", wertVorher + " , " + String.valueOf(number));
+                    }
+
+                    editor.apply();
+
+                    starts_c_Main(); // MainActivity von Sarah
+
 
                 }
             });
@@ -255,7 +283,15 @@ public class Bluetooth extends Activity {
 
                 showToast("Found device " + device.getName());
             }
+
         }
     };
 
+    public void starts_c_Main(){
+
+
+        Intent intent = new Intent(Bluetooth.this, s_c_Main.class);
+
+        startActivity(intent);
+    }
 }
