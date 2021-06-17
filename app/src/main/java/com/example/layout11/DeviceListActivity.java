@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -50,6 +51,7 @@ public class DeviceListActivity extends Activity {
 
                     pairDevice(device);
                 }
+
             }
         });
 
@@ -77,6 +79,10 @@ public class DeviceListActivity extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        Bluetooth.mGetvalueBtn.setEnabled(true);
+        Bluetooth.mInfo.setVisibility(View.VISIBLE);
+        Bluetooth.mValue.setVisibility(View.VISIBLE);
     }
 
     private void unpairDevice(BluetoothDevice device) {
@@ -87,6 +93,10 @@ public class DeviceListActivity extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        Bluetooth.mGetvalueBtn.setEnabled(false);
+        Bluetooth.mInfo.setVisibility(View.INVISIBLE);
+        Bluetooth.mValue.setVisibility(View.INVISIBLE);
     }
 
     private final BroadcastReceiver mPairReceiver = new BroadcastReceiver() {
