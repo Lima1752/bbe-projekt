@@ -22,7 +22,7 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
-    FloatingActionButton fmenu,fgraph,fhome, fBluetooth;
+    FloatingActionButton fmenu,fgraph, fBluetooth;
     Float translationYaxis= 100f;
     Boolean menuOpen = false;
 

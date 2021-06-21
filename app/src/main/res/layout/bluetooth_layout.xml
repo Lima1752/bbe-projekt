@@ -86,12 +86,12 @@
 
 
     <Button
-            android:id="@+id/btn_save"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:text="SAVE VALUE"
-            android:textColor="#FFFFFF" />
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="SAVE VALUE"
+        android:textColor="#FFFFFF" />
 
 
 

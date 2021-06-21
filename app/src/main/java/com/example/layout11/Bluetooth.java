@@ -44,6 +44,7 @@ public class Bluetooth extends Activity {
     public static TextView mInfo;
     private int number;
 
+
     private ProgressDialog mProgressDlg;
 
     private ArrayList<BluetoothDevice> mDeviceList = new ArrayList<BluetoothDevice>();
@@ -66,7 +67,6 @@ public class Bluetooth extends Activity {
         mGetvalueBtn = (Button) this.findViewById(R.id.btn_getvalue);
         mValue = (TextView) this.findViewById(R.id.tv_value);
         mInfo = (TextView) this.findViewById(R.id.tv_info);
-
 
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
@@ -143,7 +143,6 @@ public class Bluetooth extends Activity {
 
                 }
             });
-
 
             mSaveBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -290,8 +289,9 @@ public class Bluetooth extends Activity {
     public void starts_c_Main(){
 
 
-        Intent intent = new Intent(Bluetooth.this, s_c_Main.class);
+        Intent intent = new Intent(Bluetooth.this, s_c_Main_Activity.class);
 
         startActivity(intent);
     }
+
 }
